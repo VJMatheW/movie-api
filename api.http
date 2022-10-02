@@ -1,0 +1,35 @@
+@local = localhost:3000
+@host = {{local}}
+@url = http://{{host}}/api/movie
+
+GET {{url}}
+
+###
+POST {{url}}
+Content-Type: application/json
+Cookie: authenticated=true
+
+{
+    "movie_name": "Naane varuvaen",
+    "rating": 3.7,
+    "cast": ["Dhanush"],
+    "genre": "Horror",
+    "release_date": "2022-09-29 00:00:00+05:30"
+}
+
+###
+PUT {{url}}/2
+Content-Type: application/json
+Cookie: authenticated=true
+
+{
+    "movie_name": "Naane varuvaen",
+    "rating": 3.8,
+    "cast": ["Dhanush", "Selvaraghavan", "Elli AvrRam"],
+    "genre": "Adventure",
+    "release_date": "2022-09-29 00:00:00+05:30"
+}
+
+###
+DELETE {{url}}/7
+Cookie: authenticated=true
